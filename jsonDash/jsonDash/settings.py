@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'webHook.apps.WebhookConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework_swagger', 
     'rest_framework',               
     'drf_yasg',
-    'webHook'
 ]
 
 MIDDLEWARE = [
