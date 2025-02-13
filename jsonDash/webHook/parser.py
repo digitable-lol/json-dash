@@ -19,10 +19,7 @@ def json_parser(json:dict,last_id: int):
                         string = jsonNode(column_key = json[i][j],value = 'null',parent_id = arr_id)
                         string.save()
             else:
-                # last_id = jsonNode.objects.last().id
                 string = jsonNode(column_key = i,value = str(json[i]),parent_id = last_id)
                 string.save()
     except ValidationError:
         pass
-    #     logging.exception('Data is not valid')
-    #     return Response(string,status=status.HTTP_400_BAD_REQUEST)

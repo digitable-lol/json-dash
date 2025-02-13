@@ -32,7 +32,7 @@ class Node_API_View(viewsets.ModelViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
     def create(self,request,*args,**kwargs):
-        logging.info(f"{request},{request.data}")
+        logging.info(f"{request}, {request.data}")
         data = request.data
         for i in data:
             flg = True
@@ -45,8 +45,9 @@ class Node_API_View(viewsets.ModelViewSet):
             name = data['name']
             new_project = jsonNode(column_key = 'name',value = name,parent_id = -1)
             new_project.save()
-        json_parser(data,new_project.id)
+        json_parser(data, new_project.id)
         return Response(request,status=status.HTTP_201_CREATED)
+
     def destroy(self,request,*args,**kwargs):
         logging.info(f'{request},delete - id = {kwargs["pk"]}')
         try:
