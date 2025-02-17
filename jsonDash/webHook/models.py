@@ -7,4 +7,4 @@ class jsonNode(models.Model):
     parent_id = models.IntegerField(null=True,default=True)
 
     def __str__(self):
-        return self.key +" " + self.value
+        return self.key + " " + self.value
