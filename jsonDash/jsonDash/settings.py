@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_swagger', 
-    'rest_framework',               
+    'rest_framework_swagger',
+    'rest_framework',
     'drf_yasg',
     'webHook'
 ]
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'jsonDash.wsgi.application'
 DATABASES = {
     "default": {
            "ENGINE": "django.db.backends.postgresql_psycopg2",
-           "NAME": os.getenv("DB_NAME"), 
+           "NAME": os.getenv("DB_NAME"),
            "USER": os.getenv("DB_USER"),
            "PASSWORD": os.getenv("DB_PASSWORD"),
            "HOST": os.getenv("DB_HOST"),

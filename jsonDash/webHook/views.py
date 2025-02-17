@@ -1,5 +1,4 @@
 from .models import jsonNode
-from django.forms import ValidationError
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,12 +7,13 @@ from .models import jsonNode
 from .serializers import Node_Serializer
 # Create your views here.
 
+
 class Node_API_View(viewsets.ModelViewSet):
 
     queryset = jsonNode.objects.all()
     serializer_class = Node_Serializer
 
-    def retrive(self,request,*args,**Kwarfs):
+    def retrive(self, request, *args, **Kwarfs):
         logging.info(f"{request} - list all objects")
         data = jsonNode.objects.raw('''
         WITH RECURSIVE jsonNode(id,parent_id) AS (
@@ -22,5 +22,5 @@ class Node_API_View(viewsets.ModelViewSet):
                 WHERE id = kwarfs["id"]
             UNION ALL
             )
-        SELECT * FROM jsonNode''')                          
-        return Response(data,status=status.HTTP_200_OK)
+        SELECT * FROM jsonNode''')
+        return Response(data, status=status.HTTP_200_OK)
