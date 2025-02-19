@@ -14,6 +14,7 @@ class Node_API_View(viewsets.ModelViewSet):
     queryset = jsonNode.objects.all()
     serializer_class = Node_Serializer
 
+
     def list(self, request, *args, **kwargs):
         logging.info(f"{request} - list all objects")
         data = list(jsonNode.objects.values())
