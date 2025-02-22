@@ -33,7 +33,7 @@ class Node_API_View(viewsets.ModelViewSet):
         except IndexError:
             logging.exception("Index out of range")
             return Response(status=status.HTTP_404_NOT_FOUND)
-
+          
     def create(self, request, *args, **kwargs):
         logging.info(f"{request},{request.data}")
         data = request.data
@@ -52,6 +52,7 @@ class Node_API_View(viewsets.ModelViewSet):
         return Response(request, status=status.HTTP_201_CREATED)
 
     def destroy(self, request, *args, **kwargs):
+      
         logging.info(f'{request},delete - id = {kwargs["pk"]}')
         try:
             data = jsonNode.objects.filter(id=kwargs['pk'])[0]

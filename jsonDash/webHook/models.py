@@ -11,4 +11,3 @@ class jsonNode(models.Model):
 
     def __str__(self):
         return f"{self.id} {self.column_key} {self.value} {self.parent_id}"
- 

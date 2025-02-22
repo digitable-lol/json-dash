@@ -1,4 +1,13 @@
 services:
+  keycloak:
+    image: quay.io/keycloak/keycloak
+    container_name: keycloak
+    command: start --hostname=http://localhost:8080 --http-enabled=true
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - 8080:8080
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -22,9 +31,9 @@ services:
     env_file:
       - .env
     environment:
-      - POSTGRES_DB=lighttraffic_db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=DB_NAME
+      - POSTGRES_USER=DB_USER
+      - POSTGRES_PASSWORD=DB_PASSWORD
     container_name: pgdb
     volumes:
       - pgdbdata:/var/lib/postgresql/data/
