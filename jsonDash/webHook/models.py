@@ -1,7 +1,10 @@
 from django.db import models
 
 # Create your models here.
+
+
 class jsonNode(models.Model):
+
     column_key = models.TextField(default="")
     value = models.TextField(default="")
     parent_id = models.IntegerField(default=0)
